@@ -1,0 +1,8 @@
+body{margin:0;background:#1b1b1b;font-family:system-ui;display:flex;justify-content:center}
+.phone{width:min(430px,100vw);min-height:100vh;background:#efeae2}
+header{background:#0a8f5a;color:#fff;padding:16px;font-weight:bold}
+.chat{height:65vh;overflow:auto;padding:10px;display:flex;flex-direction:column;gap:8px}
+.me,.them{padding:10px 14px;border-radius:14px;max-width:80%}
+.me{background:#c8f7c5;align-self:flex-end}.them{background:#fff;align-self:flex-start}
+.friend{padding:10px}.bar{height:16px;background:#bbb;border-radius:8px}.bar>div{height:100%;width:0;background:#38c172}
+button{margin:10px;width:calc(100% - 20px);padding:16px;font-size:18px}.bottom{display:flex;justify-content:space-between;align-items:center;padding:0 10px 10px}
