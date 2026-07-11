@@ -1,1 +1,9 @@
-body{margin:0;font-family:sans-serif;background:#234}.app{max-width:430px;margin:auto;background:#eee;min-height:100vh;padding:10px}.chat{height:300px;overflow:auto;background:#fff;padding:8px}.me{background:#cfc;padding:8px;margin:4px 0 4px auto;max-width:80%}.them{background:#ddd;padding:8px;margin:4px 0;max-width:80%}button{width:100%;padding:14px}
+
+body{margin:0;background:#111;font-family:system-ui}
+.phone{max-width:430px;margin:auto;min-height:100vh;background:#ece5dd}
+.top{background:#075e54;color:#fff;padding:14px;font-weight:bold;display:flex;justify-content:space-between}
+.chat{height:60vh;overflow:auto;padding:12px;background:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="40" height="40"%3E%3Ctext y="30" font-size="24"%3E🀄%3C/text%3E%3C/svg%3E')}
+.b{padding:10px 14px;border-radius:14px;max-width:80%;margin:8px 0;animation:pop .2s}.me{background:#dcf8c6;margin-left:auto}.them{background:#fff}
+.typing{padding:8px 12px;color:#666;display:none}.mission{background:#fff3cd;margin:8px;padding:10px;border-radius:8px}
+button{width:calc(100% - 20px);margin:10px;padding:16px;border:none;border-radius:12px;background:#25d366;color:#fff;font-size:18px}
+.bottom{padding:10px}@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
