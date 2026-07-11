@@ -1,14 +1,21 @@
 
-const excuses=['今日は仕事😭','眠い…','お金ない😂','嫁が…','また今度！','今ゲーセン','30分なら！'];
-const persuades=['東風だけ！','ラス半！','勝ったらジュース！','役満見せて！','牌が泣いてる！'];
-let mood=0,wins=+localStorage.mjwins||0;
-const chat=id=>document.getElementById('chat');
-function bubble(t,me){let d=document.createElement('div');d.className=me?'me':'them';d.textContent=t;chat().appendChild(d);chat().scrollTop=chat().scrollHeight;}
-function update(){document.getElementById('bar').style.width=Math.min(mood,100)+'%';document.getElementById('wins').textContent=wins;localStorage.mjwins=wins;}
-document.getElementById('send').onclick=()=>{
- bubble('🀄 '+persuades[Math.floor(Math.random()*persuades.length)],true);
- if(Math.random()<0.22||mood>=100){setTimeout(()=>{bubble('…OK！行こう！！🎉',false);wins++;mood=0;update();},400);}
- else {setTimeout(()=>{bubble(excuses[Math.floor(Math.random()*excuses.length)],false);mood+=15+Math.random()*20;update();},400);}
+const excuses=['今日は仕事😭','眠い😪','また今度！','嫁が…','財布が空だ😂','飲み会🍺'];
+const invites=['東風だけ！','30分だけ！','ラス半！','役満見よう！','牌が呼んでる！'];
+let wins=+localStorage.wins||0,combo=0;
+const chat=document.getElementById('chat'),typing=document.getElementById('typing');
+function add(t,me){let d=document.createElement('div');d.className='b '+(me?'me':'them');d.textContent=t;chat.appendChild(d);chat.scrollTop=chat.scrollHeight;}
+function hud(){winsEl.textContent=wins;comboEl.textContent=combo;localStorage.wins=wins;}
+const winsEl=document.getElementById('wins'),comboEl=document.getElementById('combo');
+add('友達を麻雀に誘おう！',0);hud();
+send.onclick=()=>{
+ combo++; if(navigator.vibrate)navigator.vibrate(15);
+ add('🀄 '+invites[Math.random()*invites.length|0],1);
+ typing.style.display='block';
+ setTimeout(()=>{
+ typing.style.display='none';
+ if(Math.random()<0.25){add('OK！行こう！！🎉',0);wins++;combo=0;}
+ else add(excuses[Math.random()*excuses.length|0],0);
+ hud();
+ },700);
 };
-document.getElementById('reset').onclick=()=>{chat().innerHTML='';mood=0;bubble('新しい友達が現れた！',false);update();}
-bubble('友達に麻雀の誘いを送ろう！',false);update();
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
